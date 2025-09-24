@@ -1,8 +1,7 @@
 import { ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { ParallaxSection } from "./ParallaxSection";
-import { Canvas } from '@react-three/fiber';
-import { AnimatedSpinalColumn } from './AnimatedSkeleton';
+import Orb from './Orb';
 
 export const HeroSection = () => {
   return (
@@ -13,14 +12,14 @@ export const HeroSection = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Skeleton Canvas */}
+      {/* Orb Background */}
       <div className="absolute inset-0 pointer-events-none z-5 overflow-hidden">
-        <Canvas camera={{ position: [0, 0, 12], fov: 75 }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
-          <pointLight position={[-10, -10, 5]} intensity={0.8} color="#9333ea" />
-          <AnimatedSpinalColumn />
-        </Canvas>
+        <Orb 
+          hue={270} 
+          hoverIntensity={0.3} 
+          rotateOnHover={true} 
+          forceHoverState={false}
+        />
       </div>
 
       <ParallaxSection className="container max-w-4xl mx-auto text-center z-10" speed={0.3}>
