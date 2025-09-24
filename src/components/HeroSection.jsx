@@ -1,43 +1,88 @@
 import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ParallaxSection } from "./ParallaxSection";
 
 export const HeroSection = () => {
   return (
-    <section
+    <motion.section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
-      <div className="container max-w-4xl mx-auto text-center z-10">
+      <ParallaxSection className="container max-w-4xl mx-auto text-center z-10" speed={0.3}>
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I'm </span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold tracking-tight"
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              Hi, I'm{" "}
+            </motion.span>
+            <motion.span 
+              className="text-primary"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
               {" "}
               HAMZA
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
+            </motion.span>
+            <motion.span 
+              className="text-gradient ml-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
               {" "}
               MBARKI
-            </span>
-          </h1>
+            </motion.span>
+          </motion.h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
+          <motion.p 
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+          >
             I create stellar web experiences with modern technologies.
             Specializing in front-end development, I build interfaces that are
             both beautiful and functional.
-          </p>
+          </motion.p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
+          <motion.div 
+            className="pt-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1, duration: 0.5 }}
+          >
+            <motion.a 
+              href="#projects" 
+              className="cosmic-button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               View My Work
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
-      </div>
+      </ParallaxSection>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      >
         <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
         <ArrowDown className="h-5 w-5 text-primary" />
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
