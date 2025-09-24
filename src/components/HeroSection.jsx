@@ -1,6 +1,8 @@
 import { ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { ParallaxSection } from "./ParallaxSection";
+import { Canvas } from '@react-three/fiber';
+import { AnimatedSkeleton } from './AnimatedSkeleton';
 
 export const HeroSection = () => {
   return (
@@ -11,6 +13,15 @@ export const HeroSection = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
+      {/* Skeleton Canvas */}
+      <div className="absolute inset-0 pointer-events-none z-5">
+        <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <AnimatedSkeleton />
+        </Canvas>
+      </div>
+
       <ParallaxSection className="container max-w-4xl mx-auto text-center z-10" speed={0.3}>
         <div className="space-y-6">
           <motion.h1 

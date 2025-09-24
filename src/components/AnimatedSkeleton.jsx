@@ -114,7 +114,7 @@ export const AnimatedSkeleton = () => {
   });
 
   return (
-    <group ref={skeletonRef} position={[6, 0, -8]} scale={1.2}>
+    <group ref={skeletonRef} position={[4, 0, -5]} scale={0.8}>
       {/* Skull */}
       <SkeletonSkull position={[0, 3, 0]} />
       
