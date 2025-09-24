@@ -2,7 +2,7 @@ import { ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { ParallaxSection } from "./ParallaxSection";
 import { Canvas } from '@react-three/fiber';
-import { AnimatedSkeleton } from './AnimatedSkeleton';
+import { AnimatedSpinalColumn } from './AnimatedSkeleton';
 
 export const HeroSection = () => {
   return (
@@ -14,11 +14,12 @@ export const HeroSection = () => {
       transition={{ duration: 1 }}
     >
       {/* Skeleton Canvas */}
-      <div className="absolute inset-0 pointer-events-none z-5">
-        <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
+      <div className="absolute inset-0 pointer-events-none z-5 overflow-hidden">
+        <Canvas camera={{ position: [0, 0, 12], fov: 75 }}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
-          <AnimatedSkeleton />
+          <pointLight position={[-10, -10, 5]} intensity={0.8} color="#9333ea" />
+          <AnimatedSpinalColumn />
         </Canvas>
       </div>
 
