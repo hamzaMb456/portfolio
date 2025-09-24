@@ -24,6 +24,29 @@ export const HeroSection = () => {
 
       <ParallaxSection className="container max-w-4xl mx-auto text-center z-10" speed={0.3}>
         <div className="space-y-6">
+          {/* Profile Image */}
+          <motion.div 
+            className="flex justify-center mb-8"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="relative">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
+                <img 
+                  src="/profile_image.jpg" 
+                  alt="Hamza Mbarki - Full Stack Developer" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=400";
+                  }}
+                />
+              </div>
+              {/* Glowing ring effect */}
+              <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-pulse-subtle"></div>
+            </div>
+          </motion.div>
+
           <motion.h1 
             className="text-4xl md:text-6xl font-bold tracking-tight"
             initial={{ scale: 0.5, opacity: 0 }}
@@ -63,9 +86,9 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            I create stellar web experiences with modern technologies.
-            Specializing in front-end development, I build interfaces that are
-            both beautiful and functional.
+            Full Stack Developer & DevOps Engineer passionate about creating exceptional digital experiences. 
+            I specialize in end-to-end web development, CI/CD pipelines, and UI/UX design, bringing innovative 
+            software solutions to life as an IT student with a focus on modern technologies and best practices.
           </motion.p>
 
           <motion.div 
