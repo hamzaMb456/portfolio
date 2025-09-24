@@ -2,6 +2,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
+import { AnimatedSkeleton } from './AnimatedSkeleton';
 
 const AnimatedSphere = () => {
   const ref = useRef();
@@ -88,6 +89,8 @@ export const ThreeBackground = () => {
           geometry={<tetrahedronGeometry args={[1]} />}
           color="#f59e0b"
         />
+        
+        <AnimatedSkeleton />
       </Canvas>
     </div>
   );

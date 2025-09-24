@@ -153,6 +153,12 @@
          hover:scale-105 active:scale-95;
 }
 
+@utility skeleton-glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 
+              0 0 40px rgba(139, 92, 246, 0.2),
+              0 0 60px rgba(139, 92, 246, 0.1);
+}
+
 @utility star {
   @apply absolute rounded-full bg-white;
   box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
